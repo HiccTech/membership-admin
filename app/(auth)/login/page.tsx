@@ -54,7 +54,7 @@ const Login = () => {
                     content: "Login successful",
                   });
                   setTimeout(() => {
-                    router.replace("/");
+                    router.replace("/pet");
                   }, 500);
                 } else {
                   setIsLoading(false);

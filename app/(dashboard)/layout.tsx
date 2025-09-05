@@ -9,14 +9,25 @@ import {
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 const { Header, Sider, Content } = Layout;
 
-const App: React.FC = () => {
+export default function Root({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const pathname = usePathname();
+
+  const [selectedKeys, setSelectedKeys] = useState([pathname]);
+
+  const router = useRouter();
 
   return (
     <Layout>
@@ -27,22 +38,21 @@ const App: React.FC = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          selectedKeys={selectedKeys}
+          onSelect={({ key }) => {
+            setSelectedKeys([key]);
+            router.push(key);
+          }}
           items={[
             {
-              key: "1",
+              key: "/member",
               icon: <UserOutlined />,
               label: "Member",
             },
             {
-              key: "2",
+              key: "/pet",
               icon: <VideoCameraOutlined />,
-              label: "Pet profile ",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
+              label: "Pet",
             },
           ]}
         />
@@ -69,11 +79,9 @@ const App: React.FC = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
+          {children}
         </Content>
       </Layout>
     </Layout>
   );
-};
-
-export default App;
+}
