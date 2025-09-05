@@ -21,7 +21,7 @@ const Login = () => {
       {contextHolder}
       <div className="flex flex-col justify-center items-center h-full">
         <h1 className="text-2xl mb-7 font-bold bg-gradient-to-r from-[#6a51b7] to-pink-400 bg-clip-text text-transparent">
-          Hiccpet Member Admin
+          Hiccpet Membership Admin
         </h1>
         <Card className="w-[500px]">
           <Input
