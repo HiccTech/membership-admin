@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // const host = "http://localhost:8080";
-const host = "https://api-test-club-sg.hiccpet.com";
+const host = process.env.NEXT_PUBLIC_HOST;
+console.log("API Host:", host);
 
 // 创建 axios 实例
 const api = axios.create({
