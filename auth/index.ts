@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const host = "http://localhost:8080";
+// const host = "http://localhost:8080";
+const host = "https://api-test-club-sg.hiccpet.com";
 
 // 创建 axios 实例
 const api = axios.create({
-  baseURL: `${host}/api`, // 统一前缀
+  baseURL: `${host}/admin`, // 统一前缀
   timeout: 5000,
 });
 
