@@ -38,8 +38,10 @@ EOF
 # ---------- 3. 输出访问地址 ----------
 if [[ "$ENV" == "test" ]]; then
   PORT=3001
+  NETWORK=https://admin-test-club-sg.hiccpet.com
 else
   PORT=3000
+  NETWORK=https://admin-club-sg.hiccpet.com
 fi
 
-echo "部署完成，访问 http://$SERVER_IP:$PORT"
+echo "部署完成，访问 http://$SERVER_IP:$PORT OR $NETWORK"
